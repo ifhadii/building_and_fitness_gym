@@ -1,43 +1,43 @@
 <template>
-    <div class="header bg-gray-800 text-white shadow-lg">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
+    <div class="header">
+        <div class="container">
+            <div class="nav-container">
                 <!-- Logo/Brand -->
-                <div class="text-xl font-bold">بناء ولياقة</div>
+                <div class="brand">بناء ولياقة</div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
-                    <ul class="mainLinks flex space-x-8">
-                        <li><a href="#Home" class="hover:text-green-400 transition duration-300">الرئيسية</a></li>
-                        <li><a href="#AboutUs" class="hover:text-green-400 transition duration-300">تعرف علينا</a></li>
-                        <li><a href="#Dashboard" class="hover:text-green-400 transition duration-300">لوحة البيانات</a></li>
+                <div class="desktop-menu">
+                    <ul class="access">
+                        <li><a href="#SignOut">تسجيل خروج</a></li>
+                        <li><a href="#SignIn">تسجيل دخول</a></li>
+                        <li><a href="#SignUp">سجل معنا</a></li>
                     </ul>
-                    <ul class="access flex space-x-8">
-                        <li><a href="#SignOut" class="hover:text-green-400 transition duration-300">تسجيل خروج</a></li>
-                        <li><a href="#SignIn" class="hover:text-green-400 transition duration-300">تسجيل دخول</a></li>
-                        <li><a href="#SignUp" class="hover:text-green-400 transition duration-300">سجل معنا</a></li>
+                    <ul class="mainLinks">
+                        <li><a href="#Home">الرئيسية</a></li>
+                        <li><a href="#AboutUs">تعرف علينا</a></li>
+                        <li><a href="#Dashboard">لوحة البيانات</a></li>
                     </ul>
                 </div>
 
                 <!-- Burger Button for Mobile -->
-                <button @click="toggleMenu" class="md:hidden focus:outline-none">
-                    <div class="w-6 flex flex-col space-y-1">
-                        <span :class="['h-0.5 bg-white transition-all duration-300', isOpen ? 'rotate-45 translate-y-1.5' : '']"></span>
-                        <span :class="['h-0.5 bg-white transition-all duration-300', isOpen ? 'opacity-0' : '']"></span>
-                        <span :class="['h-0.5 bg-white transition-all duration-300', isOpen ? '-rotate-45 -translate-y-1.5' : '']"></span>
+                <button @click="toggleMenu" class="burger-btn">
+                    <div class="burger-lines">
+                        <span :class="['burger-line', isOpen ? 'open' : '']"></span>
+                        <span :class="['burger-line', isOpen ? 'open' : '']"></span>
+                        <span :class="['burger-line', isOpen ? 'open' : '']"></span>
                     </div>
                 </button>
             </div>
 
             <!-- Mobile Menu -->
-            <div :class="['md:hidden overflow-hidden transition-all duration-300', isOpen ? 'max-h-96 pb-4' : 'max-h-0']">
-                <div class="flex flex-col space-y-4">
-                    <a href="#Home" class="hover:text-green-400 transition duration-300 py-2 border-b border-gray-700">الرئيسية</a>
-                    <a href="#AboutUs" class="hover:text-green-400 transition duration-300 py-2 border-b border-gray-700">تعرف علينا</a>
-                    <a href="#Dashboard" class="hover:text-green-400 transition duration-300 py-2 border-b border-gray-700">لوحة البيانات</a>
-                    <a href="#SignOut" class="hover:text-green-400 transition duration-300 py-2 border-b border-gray-700">تسجيل خروج</a>
-                    <a href="#SignIn" class="hover:text-green-400 transition duration-300 py-2 border-b border-gray-700">تسجيل دخول</a>
-                    <a href="#SignUp" class="hover:text-green-400 transition duration-300 py-2">سجل معنا</a>
+            <div :class="['mobile-menu', isOpen ? 'open' : 'closed']">
+                <div class="mobile-links">
+                    <a href="#Home" @click="closeMenu">الرئيسية</a>
+                    <a href="#AboutUs" @click="closeMenu">تعرف علينا</a>
+                    <a href="#Dashboard" @click="closeMenu">لوحة البيانات</a>
+                    <a href="#SignOut" @click="closeMenu">تسجيل خروج</a>
+                    <a href="#SignIn" @click="closeMenu">تسجيل دخول</a>
+                    <a href="#SignUp" @click="closeMenu">سجل معنا</a>
                 </div>
             </div>
         </div>
@@ -55,7 +55,153 @@ export default {
     methods: {
         toggleMenu() {
             this.isOpen = !this.isOpen
+        },
+        closeMenu() {
+            this.isOpen = false
         }
     }
 }
 </script>
+
+<style scoped>
+* {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #1f2937;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.brand {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.desktop-menu {
+    display: none;
+}
+
+.mainLinks, .access {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mainLinks {
+    margin-right: 2rem;
+}
+
+.mainLinks li, .access li {
+    margin: 0 1rem;
+}
+
+.mainLinks a, .access a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mainLinks a:hover, .access a:hover {
+    color: #4ade80;
+}
+
+.burger-btn {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.burger-lines {
+    width: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.burger-line {
+    height: 0.125rem;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.burger-line.open:nth-child(1) {
+    transform: rotate(45deg) translateY(0.375rem);
+}
+
+.burger-line.open:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-line.open:nth-child(3) {
+    transform: rotate(-45deg) translateY(-0.375rem);
+}
+
+.mobile-menu {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.mobile-menu.closed {
+    max-height: 0;
+}
+
+.mobile-menu.open {
+    max-height: 24rem;
+    padding-bottom: 1rem;
+}
+
+.mobile-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #374151;
+    transition: color 0.3s ease;
+}
+
+.mobile-links a:hover {
+    color: #4ade80;
+}
+
+.mobile-links a:last-child {
+    border-bottom: none;
+}
+
+@media (min-width: 768px) {
+    .desktop-menu {
+        display: flex;
+    }
+    
+    .burger-btn {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: none;
+    }
+}
+</style>
