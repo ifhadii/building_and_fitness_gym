@@ -1,22 +1,22 @@
 <template>
 
     <Navbar />
-    <About />
+    <HomePage />
     <FooterPage />
 
 </template>
 
 <script>
 
-import About from './components/About.vue'
+import HomePage from './components/HomePage.vue'
 import Navbar from './components/Navbar.vue'
 import FooterPage from './components/FooterPage.vue'
 
 export default {
   name: 'App',
   components: {
-    About,
     Navbar,
+    HomePage,
     FooterPage,
   }
 }
@@ -24,5 +24,7 @@ export default {
 
 <style>
 #app {
+  background-color: #eee;
 }
+
 </style>

@@ -76,6 +76,7 @@ export default {
     background-color: #1f2937;
     color: white;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
 }
 
 .container {

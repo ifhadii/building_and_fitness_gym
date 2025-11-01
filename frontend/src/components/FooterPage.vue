@@ -80,6 +80,7 @@ export default {
 }
 
 .footer {
+  margin-top: 40px;
   background-color: #0f172a;
   color: #e2e8f0;
   padding: 3rem 1.5rem 1rem;
