@@ -28,7 +28,7 @@
 
         <!-- Vertical arrows on right -->
         <div class="slider-buttons">
-          <button @click="slidePrev"><i class="fa-solid fa-arrow-up"></i></button>
+          <button @click="slidePrev"><i class="fa-solid fa-arrow-right-long"></i></button>
           <button @click="slideNext"><i class="fa-solid fa-arrow-down"></i></button>
         </div>
       </div>
@@ -62,6 +62,7 @@ export default {
 .home {
   display: flex;
   justify-content: center;
+  margin-bottom: 10rem;
 }
 
 .container {
