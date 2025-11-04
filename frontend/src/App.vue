@@ -16,6 +16,7 @@
     <Navbar />
     <HomePage />
     <SubscriptionsSections />
+    <DietProgramsSections />
     <FooterPage />
 
 </template>
@@ -26,6 +27,8 @@ import HomePage from './components/HomePage.vue'
 import Navbar from './components/Navbar.vue'
 import FooterPage from './components/FooterPage.vue'
 import SubscriptionsSections from './components/SubscriptionsSections.vue'
+import DietProgramsSections from './components/DietProgramsSections.vue'
+
 
 export default {
   name: 'App',
@@ -34,6 +37,7 @@ export default {
     HomePage,
     FooterPage,
     SubscriptionsSections,
+    DietProgramsSections,
   }
 }
 </script>
