@@ -20,16 +20,14 @@
           :autoplay="{ delay: 3000 }"
           class="mySwiper"
         >
-          <swiper-slide><img src="../assets/1.jpg" /></swiper-slide>
-          <swiper-slide><img src="../assets/3.jpg" /></swiper-slide>
           <swiper-slide><img src="../assets/4.jpg" /></swiper-slide>
           <swiper-slide><img src="../assets/5.jpg" /></swiper-slide>
         </swiper>
 
         <!-- Vertical arrows on right -->
         <div class="slider-buttons">
-          <button @click="slidePrev"><i class="fa-solid fa-arrow-right-long"></i></button>
-          <button @click="slideNext"><i class="fa-solid fa-arrow-down"></i></button>
+          <button @click="slidePrev"><i class="fa-solid fa-arrow-right"></i></button>
+          <button @click="slideNext"><i class="fa-solid fa-arrow-left"></i></button>
         </div>
       </div>
     </div>
@@ -63,6 +61,7 @@ export default {
   display: flex;
   justify-content: center;
   margin-bottom: 10rem;
+  background-color: white;
 }
 
 .container {
@@ -118,10 +117,10 @@ export default {
 }
 
 .image-slider img {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  object-fit: cover;
+  width: 90%;
+  /* height: auto; */
+  border-radius: 5px;
+  /* object-fit: cover; */
 }
 
 /* Vertical arrows on right side */
@@ -149,10 +148,6 @@ export default {
 .slider-buttons button:hover {
   background-color: #e65c00;
 }
-
-/* ---------------------- */
-/* ✅ Responsive Design  */
-/* ---------------------- */
 
 /* Tablets and small laptops */
 @media (max-width: 992px) {
